@@ -29,7 +29,7 @@ import com.mogujie.tt.widget.PinkToast;
 
 public class CommonUtil {
     /**
-     * @Description 判断是否是顶部activity
+     * @Description 鍒ゆ柇鏄惁鏄《閮╝ctivity
      * @param context
      * @param activityName
      * @return
@@ -46,7 +46,7 @@ public class CommonUtil {
     }
 
     /**
-     * @Description 判断存储卡是否存在
+     * @Description 鍒ゆ柇瀛樺偍鍗℃槸鍚﹀瓨鍦�
      * @return
      */
     public static boolean checkSDCard() {
@@ -59,7 +59,7 @@ public class CommonUtil {
     }
 
     /**
-     * @Description 获取sdcard可用空间的大小
+     * @Description 鑾峰彇sdcard鍙敤绌洪棿鐨勫ぇ灏�
      * @return
      */
     @SuppressWarnings("deprecation")
@@ -68,13 +68,13 @@ public class CommonUtil {
         StatFs sf = new StatFs(path.getPath());
         long blockSize = sf.getBlockSize();
         long freeBlocks = sf.getAvailableBlocks();
-        // return freeBlocks * blockSize; //单位Byte
-        // return (freeBlocks * blockSize)/1024; //单位KB
-        return (freeBlocks * blockSize) / 1024 / 1024; // 单位MB
+        // return freeBlocks * blockSize; //鍗曚綅Byte
+        // return (freeBlocks * blockSize)/1024; //鍗曚綅KB
+        return (freeBlocks * blockSize) / 1024 / 1024; // 鍗曚綅MB
     }
 
     /**
-     * @Description 获取sdcard容量
+     * @Description 鑾峰彇sdcard瀹归噺
      * @return
      */
     @SuppressWarnings({
@@ -85,10 +85,10 @@ public class CommonUtil {
         StatFs sf = new StatFs(path.getPath());
         long blockSize = sf.getBlockSize();
         long allBlocks = sf.getBlockCount();
-        // 返回SD卡大小
-        // return allBlocks * blockSize; //单位Byte
-        // return (allBlocks * blockSize)/1024; //单位KB
-        return (allBlocks * blockSize) / 1024 / 1024; // 单位MB
+        // 杩斿洖SD鍗″ぇ灏�
+        // return allBlocks * blockSize; //鍗曚綅Byte
+        // return (allBlocks * blockSize)/1024; //鍗曚綅KB
+        return (allBlocks * blockSize) / 1024 / 1024; // 鍗曚綅MB
     }
 
     public static byte[] intToBytes(int n) {
@@ -101,7 +101,7 @@ public class CommonUtil {
 
     public static byte[] float2byte(float f) {
 
-        // 把float转换为byte[]
+        // 鎶奻loat杞崲涓篵yte[]
         int fbit = Float.floatToIntBits(f);
 
         byte[] b = new byte[4];
@@ -109,14 +109,14 @@ public class CommonUtil {
             b[i] = (byte) (fbit >> (24 - i * 8));
         }
 
-        // 翻转数组
+        // 缈昏浆鏁扮粍
         int len = b.length;
-        // 建立一个与源数组元素类型相同的数组
+        // 寤虹珛涓�涓笌婧愭暟缁勫厓绱犵被鍨嬬浉鍚岀殑鏁扮粍
         byte[] dest = new byte[len];
-        // 为了防止修改源数组，将源数组拷贝一份副本
+        // 涓轰簡闃叉淇敼婧愭暟缁勶紝灏嗘簮鏁扮粍鎷疯礉涓�浠藉壇鏈�
         System.arraycopy(b, 0, dest, 0, len);
         byte temp;
-        // 将顺位第i个与倒数第i个交换
+        // 灏嗛『浣嶇i涓笌鍊掓暟绗琲涓氦鎹�
         for (int i = 0; i < len / 2; ++i) {
             temp = dest[i];
             dest[i] = dest[len - i - 1];
@@ -128,10 +128,10 @@ public class CommonUtil {
     }
 
     /**
-     * 将byte数组转换为int数据
+     * 灏哹yte鏁扮粍杞崲涓篿nt鏁版嵁
      * 
-     * @param b 字节数组
-     * @return 生成的int数据
+     * @param b 瀛楄妭鏁扮粍
+     * @return 鐢熸垚鐨刬nt鏁版嵁
      */
     public static int byteArray2int(byte[] b) {
         return (((int) b[0]) << 24) + (((int) b[1]) << 16)
@@ -139,7 +139,7 @@ public class CommonUtil {
     }
 
     /**
-     * @Description 用iid跳转到主客户端的detail页面
+     * @Description 鐢╥id璺宠浆鍒颁富瀹㈡埛绔殑detail椤甸潰
      * @param context
      * @param iid
      */
@@ -254,7 +254,7 @@ public class CommonUtil {
 
     @TargetApi(19)
     /**
-     * 这个函数只有19以上会被调用到
+     * 杩欎釜鍑芥暟鍙湁19浠ヤ笂浼氳璋冪敤鍒�
      * @param data
      */
     public static String getImagePathAboveKITKAT(Context context, Intent data) {
@@ -315,7 +315,7 @@ public class CommonUtil {
             path = uri.getPath();
         }
 
-        // 如果实在获取不到path，那就用旧方法再来一次
+        // 濡傛灉瀹炲湪鑾峰彇涓嶅埌path锛岄偅灏辩敤鏃ф柟娉曞啀鏉ヤ竴娆�
         if (TextUtils.isEmpty(path)) {
             path = PhotoHandler.getInstance(context).getImagePathFromUri(uri);
         }
@@ -463,7 +463,7 @@ public class CommonUtil {
     }
 
     /**
-     * @Description 隐藏软键盘
+     * @Description 闅愯棌杞敭鐩�
      * @param activity
      */
     public static void hideInput(Activity activity) {
